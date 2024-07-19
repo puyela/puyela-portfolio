@@ -1,0 +1,133 @@
+.glassy-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 123, 255, 0.8);
+    /* Base color (e.g., Bootstrap's blue) */
+    color: white;
+    /* Text color */
+    border: 1px solid rgba(0, 123, 255, 1);
+    /* Border color same as background color */
+    border-radius: 8px;
+    /* Optional: for rounded corners */
+    transition: transform 0.3s ease;
+    /* For hover scale effect */
+}
+
+.glassy-button:hover {
+    transform: scale(1.05);
+    /* Increase size on hover */
+}
+
+.glassy-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    animation: shimmer 5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Adding a gradient overlay for a glassy effect */
+.glassy-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    opacity: 0.7;
+    /* Adjust for desired transparency */
+    pointer-events: none;
+    /* Prevents the overlay from interfering with button interaction */
+}
+
+/* Add the dancing effect keyframes */
+@keyframes dance {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-10px);
+    }
+
+    40% {
+        transform: translateY(5px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+
+    80% {
+        transform: translateY(10px);
+    }
+}
+
+.scalable-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    animation: dance 5s infinite;
+    /* Apply the dance animation */
+}
+
+.scalable-button:hover {
+    transform: scale(1.1);
+    background-color: #1d4ed8;
+    /* Dark blue */
+    border-color: #1d4ed8;
+    /* Dark blue */
+}
+
+.scalable-button svg {
+    transition: transform 0.3s ease;
+}
+
+.scalable-button:hover svg {
+    transform: scale(1.1);
+}
+
+
+/* Add the bounce effect keyframes */
+/* @keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+} */
